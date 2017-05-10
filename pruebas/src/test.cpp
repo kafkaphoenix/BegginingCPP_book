@@ -4,20 +4,10 @@
  *  Created on: 6 mar. 2017
  *      Author: sorak
  */
-#include <iostream>
-#include <cstdlib>
-#include <string>
-#include <ctime>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <stdexcept>
 
-#include "critter.h"
+#include "Critter.h"
 #include "things.h"
+#include "Farm.h"
 
 using namespace std;
 
@@ -422,159 +412,42 @@ int main(){
 //
 //	cout<<p2->size();
 
-	Critter c1,c2(8,4),c3,c4; //c1() es incorrecto -> c1
+//	Critter c1,c2(8,4,"pepe"),c3,c4; //c1() es incorrecto -> c1
+//
+//	c1.setHunger(4);
+//	c1.setBoredom(5);
+//
+//	c1.greet();
+//	c2.greet();
+//	c3.greet();
+//
+//	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
+//
+//	cout << "c1 Boredom: " << c1.getBoredom() << endl << "c2 Boredom: " <<c2.getBoredom()<<endl;
+//
+//	try{
+//		c2.setHunger(-2);
+//	}catch(exception const& e){
+//		cerr<<endl<<"Exception: "<<e.what()<<endl;
+//	}
+//
+//	c3.~Critter();
+//	c4.~Critter();
+//	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
 
-	c1.setHunger(4);
-	c1.setBoredom(5);
+	Critter crit(2,2,"Poochie");
+	cout << crit.getName() <<endl;
 
-	c1.greet();
-	c2.greet();
-	c3.greet();
+	cout << "Creating critter farm"<<endl;
+	Farm myFarm(2);
 
-	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
+	myFarm.add(Critter(3,4,"Moe"));
+	myFarm.add(Critter());
+	myFarm.rollCall();
 
-	cout << "c1 Boredom: " << c1.getBoredom() << endl << "c2 Boredom: " <<c2.getBoredom()<<endl;
-
-	try{
-		c2.setHunger(-2);
-	}catch(exception const& e){
-		cerr<<endl<<"Exception: "<<e.what()<<endl;
-	}
-
-	c3.~Critter();
-	c4.~Critter();
-	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
+	cout <<Critter::getTotal()<<endl;
 
 	return 0;
 }
 
-template <typename T>
-void recorrerIter(const vector<T>& v){
-	typename vector<T>::const_iterator iter;
-	for(iter=v.begin();iter!=v.end();++iter){
-		cout << *iter<<endl;
-	}
-	cout << endl;
-}
 
-template <typename T>
-int operator*(const vector<T>& v,const vector<T>& v2){
-	typename vector<T>::const_iterator iter;
-	typename vector<T>::const_iterator iter2=v2.begin();
-	int init=0;
-	for(iter=v.begin();iter!=v.end();++iter){
-		init += (*iter)*(*iter2);
-		++iter2;
-	}
-	return init;
-}
-
-//template <typename T>
-//int operator*( const vector<T>& v1,const vector<T>& v2){
-//	return inner_product(v1.begin(),v1.begin(),v2.begin(),0);
-//}
-
-void pSwap(int* const pX,int* const pY){
-	int temp=*pX;
-	*pX=*pY;
-	*pY=temp;
-}
-
-template <typename T>
-void mostrar(const T*const p){
-	cout <<*p<<endl;
-}
-
-string* ptrToElement(vector<string>* const pVec,int i){
-		return &((*pVec)[i]);
-}
-
-void inicializarArraySec(int* const array,int SIZE,int inicio){
-	int valor = inicio;
-	for(int i=0;i<SIZE;++i){
-		array[i]=valor;
-		valor++;
-	}
-}
-
-void displayArray(const int* const array, int SIZE){
-	for(int i=0;i<SIZE;++i){
-		cout << array[i]<<" ";
-	}
-	cout << endl;
-}
-
-void incArraySec(int* const array,int SIZE,int inc){
-	for(int i=0;i<SIZE;++i){
-		array[i]+=inc;
-	}
-}
-
-int Critter::s_Total=0;
-
-int Critter::getTotal(){
-	return s_Total;
-}
-
-void Critter::increaseTotal(){
-	++s_Total;
-}
-
-void Critter::decreaseTotal(){
-	--s_Total;
-}
-
-void Critter::greet()
-{
-	cout <<"Hola, tengo hambre: "<<m_Hunger<<endl;
-}
-
-void Critter::setHunger(int h){
-	if(h<0){
-		throw invalid_argument("Número negativo");
-	}else{
-		m_Hunger=h;
-	}
-
-}
-
-int Critter::getHunger() const{
-	return m_Hunger;
-}
-
-void Critter::setBoredom(int b){
-	if(b<0){
-		throw invalid_argument("Número negativo");
-	}else{
-		m_Boredom=b;
-	}
-
-}
-
-int Critter::getBoredom() const{
-	return m_Boredom;
-}
-
-Critter::Critter(){
-	increaseTotal();
-}
-
-Critter::Critter(int x, int y):m_Hunger(x),m_Boredom(y){
-	increaseTotal();
-}
-
-Critter::~Critter(){
-	decreaseTotal();
-}
-
-int foo(int y,int x=1){
-	return y+x;
-}
-
-float foo(int y){
-	return y;
-}
-
-float foo(int y, float z){
-	return y*z;
-}

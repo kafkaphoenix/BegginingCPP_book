@@ -9,6 +9,17 @@
 #define THINGS_H_
 
 #include<vector>
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <ctime>
+#include <algorithm>
+#include <numeric>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdexcept>
+
 using namespace std;
 
 template <typename T>

@@ -22,7 +22,7 @@ public:
 
 	Critter();
 	Critter(int,int);
-	~Critter();//No delete is needed (Lo necesitas si coges memoria del heap)
+	~Critter();
 
 	int getHunger() const;
 	void setHunger(int);

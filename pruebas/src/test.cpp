@@ -8,13 +8,12 @@
 #include "Critter.h"
 #include "things.h"
 #include "Farm.h"
-
-using namespace std;
+#include "CritterHeap.h"
 
 int main(){
 
 //	const int MAX=10;
-//	string s = "Welcome back mate!";
+//	std::string s = "Welcome back mate!";
 //	typedef unsigned short ushort;
 //	typedef unsigned long ulong;
 //	long double ld;
@@ -22,144 +21,130 @@ int main(){
 //	ulong var2=3;
 //	unsigned int score;
 //	int v1,v2;
-
-//	cout << s <<endl;
-//	cout << "Size of long double: " << sizeof(ld);
-//	cout << "\n\t horizontal tab";
-//	cout << "\n\?\'\" vertical tab doesn't look to work";
-//	cout << "\n\tvar1: " << var1 << "\n\tvar2: " << var2 << endl;
+//	std::cout << s <<std::endl;
+//	std::cout << "Size of long double: " << sizeof(ld);
+//	std::cout << "\n\t horizontal tab";
+//	std::cout << "\n\?\'\" vertical tab doesn't look to work";
+//	std::cout << "\n\tvar1: " << var1 << "\n\tvar2: " << var2 << std::endl;
 //
 //	//integer wrap around
 //	score = 4294967295;
-//	cout << "\nscore: " << score << endl;
+//	std::cout << "\nscore: " << score << std::endl;
 //	++score;
-//	cout << "score: " << score << endl;
+//	std::cout << "score: " << score << std::endl;
 //
 //	int lives =3;
 //	int bonus = ++lives * 10;
-//	cout << "lives, bonus = " << lives << ", " << bonus << endl;
+//	std::cout << "lives, bonus = " << lives << ", " << bonus << std::endl;
 //	lives = 3;
 //	bonus = lives++ * 10; //aplica live ++ después de evaluar la expresión
-//	cout << "lives, bonus = " << lives << ", " << bonus << endl;
+//	std::cout << "lives, bonus = " << lives << ", " << bonus << std::endl;
 //
-//	cout << "Seven divided by three is " << 7 / 3 << endl;
-//	cout << "Seven divided by three is " << 7.0 / 3 << endl;
-//	cout << "Seven divided by three is " << 7 / 3.0 << endl;
-//	cout << "Seven divided by three is " << 7.0 / 3.0 << endl;
-
+//	std::cout << "Seven divided by three is " << 7 / 3 << std::endl;
+//	std::cout << "Seven divided by three is " << 7.0 / 3 << std::endl;
+//	std::cout << "Seven divided by three is " << 7 / 3.0 << std::endl;
+//	std::cout << "Seven divided by three is " << 7.0 / 3.0 << std::endl;
 //	int *c;
 //	//int *c = (int*)malloc(sizeof(int));
 //
 //	c[3]=5;
 //
-//	cout << *c;
-
-	/* initialize random seed: */
+//	std::cout << *c;
+//	/* initialize random seed: */
 //	srand(time(0));
 //
 //	v1 = rand() % 100;         // v1 in the range 0 to 99
 //	v2 = rand() % 30 + 1985;   // v3 in the range 1985-2014
 //
-//	cout << RAND_MAX << "\n" << time(0) << "\n"<< v1 << "\n"<< v2;
-
-//	string w1 = "Game";// copy initialization (implicit call) does a conversion
-//	string w2("Over");// direct initialization (explicit call)
-//	string w3(3,'!');
-	//string w4= new string("FIN"); //No puede convertir un *string a string
-	//string * w4 = new string("H");//Nop (rompe la idea de string de usar buffer)
-	//Se maneja sólo
-
-	//	char* s= "literal"; //Puntero a string literal, no tienes que
-	//delete string literals. "literal" es read only normalmente y x está en stack
-	//	s[1]=2; error
-	//
-	//	cout << s;
-
-	//string in c++ are mutable, you can also make it immutable via the keyword const
-
-//	string phrase = w1+" "+w2+w3;
-//	cout << "\t" << phrase << "\n";
-//	cout << phrase.size();
-//	cout << phrase[0];
+//	std::cout << RAND_MAX << "\n" << time(0) << "\n"<< v1 << "\n"<< v2;
+//	std::string w1 = "Game";// copy initialization (implicit call) does a conversion
+//	std::string w2("Over");// direct initialization (explicit call)
+//	std::string w3(3,'!');
+//std::string w4= new std::string("FIN"); //No puede convertir un *std::string a std::string
+//std::string * w4 = new std::string("H");//Nop (rompe la idea de std::string de usar buffer)Se maneja sólo
+//	char* s= "literal"; //Puntero a std::string literal, no tienes que
+//delete std::string literals. "literal" es read only normalmente y x está en stack
+//	s[1]=2; error
+//
+//	std::cout << s;
+//std::string in c++ are mutable, you can also make it immutable via the keyword const
+//	std::string phrase = w1+" "+w2+w3;
+//	std::cout << "\t" << phrase << "\n";
+//	std::cout << phrase.size();
+//	std::cout << phrase[0];
 //
 //	phrase[0] = 'L';
 //
-//	cout << "\t" << phrase << "\n";
-
-//	new se libera con delete y no tienes que especificar el tamaño como en malloc
+//	std::cout << "\t" << phrase << "\n";
+//	/*new se libera con delete y no tienes que especificar el tamaño como en malloc
 //	heap: variables dinámicas (new es equivalente al malloc de c)
 //	stack: memoria de variables normales (tipos de datos primitivos) y el orden de
 //	resolucion de funciones y las funciones (su espacio de memoria)
 //	todoo lo que no sea new está en el stack
-//	buffer: zona de memoria para transferir datos
-
+//	buffer: zona de memoria para transferir datos*/
 //	MyClass * p1 = new MyClass[5];
 //
 //	MyClass * p1 = new MyClass;
 //	      // allocates memory by calling: operator new (sizeof(MyClass))
 //	      // and then constructs an object at the newly allocated space
-//	cout << phrase.find("Over") <<endl;
-//	cout << phrase.find("Over",4) <<endl; //busca a partir del num dado
-
+//	std::cout << phrase.find("Over") <<std::endl;
+//	std::cout << phrase.find("Over",4) <<std::endl; //busca a partir del num dado
 //	char c [5] = {'a','a','a','a','a'};
 //
 //
 //
 //	for(int i=0;i<sizeof(c);++i){
-//		cout << c[i];
+//		std::cout << c[i];
 //	}
-
-//	string::npos;
+//
 //	char map[12][20];
 //	for(int i=0;i<12;++i){
 //		for(int j=0;j<20;++j){
 //			map[i][j]='~';
-//			cout << map[i][j];
+//			std::cout << map[i][j];
 //		}
-//		cout << endl;
+//		std::cout << std::endl;
 //	}
 //
-//	string s;
+//	std::string s;
 //	s.length();
 //	s.size(); //Equivalentes
-
 //	const char* ar="armor";
-//	vector <string> inventory;
+//	vector <std::string> inventory;
 //	inventory.push_back("sword");
 //	inventory.push_back(ar);
 //	inventory.push_back("shield");
-//	cout <<"Items in your sack:"<<endl;
+//	std::cout <<"Items in your sack:"<<std::endl;
 //	for(unsigned int i=0;i<inventory.size();++i){
-//		cout << inventory[i] << endl;
+//		std::cout << inventory[i] << std::endl;
 //	}
 //
-//	cout << "\t"<<inventory.front()<<endl;
-//	cout << "\t"<<inventory.back()<<endl;
+//	std::cout << "\t"<<inventory.front()<< std::endl;
+//	std::cout << "\t"<<inventory.back()<< std::endl;
 //	inventory.pop_back();
-//	cout <<"Say goodbye to your shield "<<endl;
-//	cout <<"Items in your sack:"<<endl;
+//	std::cout <<"Say goodbye to your shield "<<std::endl;
+//	std::cout <<"Items in your sack:"<<std::endl;
 //	for(unsigned int i=0;i<inventory.size();++i){
-//		cout << inventory[i] << endl;
+//		std::cout << inventory[i] << std::endl;
 //	}
-//	cout << "Iterator's time\n";
-//	vector<string>::iterator myIterator;
-//	vector<string>::const_iterator iter;
+//	std::cout << "Iterator's time\n";
+//	vector<std::string>::iterator myIterator;
+//	vector<std::string>::const_iterator iter;
 //	inventory.push_back("rare shield");
 //	myIterator = inventory.begin();
 //	*myIterator="uncommon sword";
 //	inventory.erase(inventory.begin()+1);
 //	inventory.insert(inventory.begin()+1,"crossbow");
 //	inventory.insert(inventory.begin()+3,"set armor");
-//	/*using push_back may invalidate all iterator referencing
+//	/*using push_back may invalidate all iterator referenstd::cing
 //	*the vector porque puede superar el tamaño y hacer resize hay que hacer un nuevo
 //	*inventory.begin */
 //	/*Calling the insert() & erase() member function on a vector invalidates all of the iterators that reference
 //	*elements after the insertion/deleteion point because all of the elements after the insertion point are shifted
 //	*down by one/shifted up by one. */
 //
-//	cout <<"Your items: \n";
+//	std::cout <<"Your items: \n";
 //	recorrerIter(inventory);
-
 //	double start_s=clock();
 //
 //	vector<char>alphabet;
@@ -173,7 +158,7 @@ int main(){
 //	recorrerIter(alphabet);
 //	iter=find(alphabet.begin(),alphabet.end(),'ñ');
 //	if(iter!=alphabet.end()){
-//		cout <<endl<< "Está la letra "<<*iter<<endl;
+//		std::cout <<std::endl<< "Está la letra "<<*iter<<std::endl;
 //	}
 //
 //	vector<int>numbers;
@@ -185,94 +170,86 @@ int main(){
 //	random_shuffle(numbers.begin(),numbers.end());
 //	random_shuffle(alphabet.begin(),alphabet.end());
 //	recorrerIter(alphabet);
-//	cout<<endl;
+//	std::cout<<std::endl;
 //
 //	recorrerIter(numbers);
-//	cout <<endl;
+//	std::cout <<std::endl;
 //	sort(numbers.begin(),numbers.end());
 //	recorrerIter(numbers);
-//	string s("hola");
+//	std::string s("hola");
 //	random_shuffle(s.begin(),s.end());
-//	cout <<endl<<s<<endl;
+//	std::cout <<std::endl<<s<<std::endl;
 //
 //
 //	while(s!="hola"){
-//		string antes=s;
+//		std::string antes=s;
 //		random_shuffle(s.begin(),s.end());
 //		if(s=="hola"){
-//			cout<<"Es posible "<<antes<<" vaya shuffle "<<s<<endl;
+//			std::cout<<"Es posible "<<antes<<" vaya shuffle "<<s<<std::endl;
 //		}
 //	}
 //
 //	vector<int>scores(10,0);
-//	cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<endl;
+//	std::cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<std::endl;
 //	scores.push_back(0);
 //	scores.resize(10);
-//	cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<endl;
+//	std::cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<std::endl;
 //	scores.push_back(0);
 //	scores.reserve(30);
-//	cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<endl;
+//	std::cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<std::endl;
 //	scores.resize(10);
-//	cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<endl;
+//	std::cout <<"Size "<<scores.size()<<" Capacidad "<<scores.capacity()<<std::endl;
 //	recorrerIter(scores);
 //	double stop_s=clock();
-//	cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC) << endl;
-
+//	std::cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC) << std::endl;
 //
 //	vector <int> v1,v2,v3(2,4),v4(2,1);
 //	int x=0;
 //	int v5[3]={1,2,3};
 //	int v6[3]={2,3,4};
-
 //	srand(static_cast<int> (time(0)));
 //	generate_n(back_inserter(v1),3,uniqueNumber);
 //	generate_n(back_inserter(v2),v1.size(),uniqueNumber);
-
 //	v1.push_back(1);
 //	v1.push_back(2);
 //	v1.push_back(3);
-
 //	v2.push_back(4);
 //	v2.push_back(5);
 //	v2.push_back(6);
-
 //	recorrerIter(v1);
-//	cout<<endl;
+//	std::cout<<std::endl;
 //	recorrerIter(v2);
-//	cout<<endl;
+//	std::cout<<std::endl;
 //	x=inner_product(v1.begin(),v1.end(),v2.begin(),0);
-//	cout << x;
-//	cout<<endl;
-//	cout << v3*v4;
-//	cout<<endl;
+//	std::cout << x;
+//	std::cout<<std::endl;
+//	std::cout << v3*v4;
+//	std::cout<<std::endl;
 //	recorrerIter(v3);
-//	cout<<endl;
+//	std::cout<<std::endl;
 //	recorrerIter(v4);
-//	cout<<endl;
+//	std::cout<<std::endl;
 //	x=inner_product(v5,v5+3,v6,0);
-//	cout<<x<<endl;
-
-//	vector<string> a(10,"po"),b;
+//	std::cout<<x<<std::endl;
+//	vector<std::string> a(10,"po"),b;
 //	copy(a.begin(),a.end(),back_inserter(b));
 //	recorrerIter(b);
-
 //	char a,b;
 //
-//	cout <<"Define el carácter a: "<<endl;
-//	cin >> a;
-//	cin.ignore();
-//	cout <<a<<endl<<"Define un segundo b: "<<endl;
-//	cin.get(b);
-//	cout <<b;
-
-//	string linea;
+//	std::cout <<"Define el carácter a: "<<std::endl;
+//	std::cin >> a;
+//	std::cin.ignore();
+//	std::cout <<a<<std::endl<<"Define un segundo b: "<<std::endl;
+//	std::cin.get(b);
+//	std::cout <<b;
+//	std::string linea;
 //	ofstream outfile;
 //
 //	outfile.open("prueba.txt",ios::app);
 //	if(outfile.is_open()){
-//		cout << "Enter your name: ";
-//		getline(cin,linea);
-//		outfile << linea<<endl;
+//		std::cout << "Enter your name: ";
+//		getline(std::cin,linea);
+//		outfile << linea<<std::endl;
 //		outfile.close();
 //	}
 //
@@ -282,19 +259,18 @@ int main(){
 //	if(infile.is_open()){
 //		//		while(!infile.eof()){
 //		//
-//		//			cout << linea;
+//		//			std::cout << linea;
 //		//		}
 //		while(getline(infile,linea)){
-//			cout << linea<<endl;
+//			std::cout << linea<<std::endl;
 //		}
 //
 //		infile.close();
 //	}else{
-//		cout << "Unable to open file";
+//		std::cout << "Unable to open file";
 //	}
-
-//	string linea1;
-//	string pre="localidades.add(new Localidad(\"",post="\", provincia));";
+//	std::string linea1;
+//	std::string pre="localidades.add(new Localidad(\"",post="\", provincia));";
 //	ifstream infile;
 //	ofstream outfile;
 //
@@ -307,7 +283,7 @@ int main(){
 //			if(outfile.is_open()){
 //				pre.append(linea1);
 //				pre.append(post);
-//				outfile << pre<<endl;
+//				outfile << pre<<std::endl;
 //				outfile.close();
 //				pre.erase(pre.begin()+31,pre.end());
 //			}
@@ -316,25 +292,25 @@ int main(){
 //
 //		infile.close();
 //	}else{
-//		cout << "Unable to open file";
+//		std::cout << "Unable to open file";
 //	}
 //
 //	int x = 5;
 //	int& rx=x;
 //	int* pointer=&x;
-//	cout << pointer <<endl<< *pointer<<endl;
+//	std::cout << pointer <<std::endl<< *pointer<<std::endl;
 //
 //	int a[]={5};
 //	pointer=nullptr;
 //	pointer=a;
 //
-//	cout << pointer <<endl<< *pointer << endl;
+//	std::cout << pointer <<std::endl<< *pointer << std::endl;
 //
 //	*pointer=7;
-//	string s = "a";
-//	string *pstring=&s;
+//	std::string s = "a";
+//	std::string *pstd::string=&s;
 //
-//	cout << pstring <<" "<< *pstring<<"\n"<<"size 1: "<< pstring->size()<<" size 2: "<< (*pstring).size() <<endl;
+//	std::cout << pstd::string <<" "<< *pstd::string<<"\n"<<"size 1: "<< pstd::string->size()<<" size 2: "<< (*pstd::string).size() <<std::endl;
 //
 //
 //	const int num=6;
@@ -345,38 +321,36 @@ int main(){
 //	//se le puede asignar constantes
 //	pScore=pNum;
 //
-//	cout << pNum <<endl<<*pNum<<endl<< pNum2 <<endl<<*pNum2<<endl<< pScore<<endl<<*pScore<<endl;
+//	std::cout << pNum <<std::endl<<*pNum<<std::endl<< pNum2 <<std::endl<<*pNum2<<std::endl<< pScore<<std::endl<<*pScore<<std::endl;
 //	int num2=4;
 //
-//	cout <<endl<<endl;
-//	cout <<"Primero: "<<*pointer<<endl<<"Segundo: "<<*pNum2<<endl;
+//	std::cout <<std::endl<<std::endl;
+//	std::cout <<"Primero: "<<*pointer<<std::endl<<"Segundo: "<<*pNum2<<std::endl;
 //
 //	pSwap(pointer,pNum2);//Punteros hacia las variables
 //
-//	cout <<"Primero: "<<*pointer<<endl<<"Segundo: "<<*pNum2<<endl;
-//	cout <<endl<<endl;
-//	cout <<"Primero: "<<num2<<endl<<"Segundo: "<<x<<endl;
+//	std::cout <<"Primero: "<<*pointer<<std::endl<<"Segundo: "<<*pNum2<<std::endl;
+//	std::cout <<std::endl<<std::endl;
+//	std::cout <<"Primero: "<<num2<<std::endl<<"Segundo: "<<x<<std::endl;
 //
 //	pSwap(&num2,&x);//Con las direcciones de las variables
 //
-//	cout <<"Primero: "<<num2<<endl<<"Segundo: "<<x<<endl;
+//	std::cout <<"Primero: "<<num2<<std::endl<<"Segundo: "<<x<<std::endl;
 //
 //	mostrar(pNum);//Puntero constante con valor constante
 //	mostrar(pScore);//Puntero con valor constante
 //	mostrar(pNum2);//Puntero constante
 //	mostrar(&num);//Direccion de una variable
-
-//	vector <string> inventory;
+//	vector <std::string> inventory;
 //	inventory.push_back("Sword");
 //	inventory.push_back("Shield");
 //
-//	string str = *(ptrToElement(&inventory,0));
-//	string* pStr = ptrToElement(&inventory,1);
-//	cout<<str<<endl<<*pStr<<endl;
+//	std::string str = *(ptrToElement(&inventory,0));
+//	std::string* pStr = ptrToElement(&inventory,1);
+//	std::cout<<str<<std::endl<<*pStr<<std::endl;
 //	*pStr="Healing Potion";
-//	cout <<*pStr<<endl;
+//	std::cout <<*pStr<<std::endl;
 //	recorrerIter(inventory);
-
 //	const int SIZE=10;
 //	int array[SIZE];
 //	int inicio=3;
@@ -384,34 +358,30 @@ int main(){
 //	inicializarArraySec(array,SIZE,inicio);
 //	displayArray(array,SIZE);
 //
-//	cout<<(*array)<<endl;
-//	cout<<(*(array+3))<<endl;
-//	cout<<array[3]<<endl;
+//	std::cout<<(*array)<<std::endl;
+//	std::cout<<(*(array+3))<<std::endl;
+//	std::cout<<array[3]<<std::endl;
 //	int inc=50;
 //
 //	incArraySec(array,SIZE,inc);
 //	displayArray(array,SIZE);
-
 //	char c='1';
 //	fptr fp = f(c);
 //
-//	cout << fp();
+//	std::cout << fp();
 //
 //	return 0;
-
 //	int a = 10;
 //	int& b = a;
 //	int* c = &b;
-//	cout << &a << endl;
-//	cout << &b << endl;
-//	cout << &(*c) << endl;
-
-//	string s= "hola";
-//	string* p1=&s;
-//	string* p2=p1;
+//	std::cout << &a << std::endl;
+//	std::cout << &b << std::endl;
+//	std::cout << &(*c) << std::endl;
+//	std::string s= "hola";
+//	std::string* p1=&s;
+//	std::string* p2=p1;
 //
-//	cout<<p2->size();
-
+//	std::cout<<p2->size();
 //	Critter c1,c2(8,4,"pepe"),c3,c4; //c1() es incorrecto -> c1
 //
 //	c1.setHunger(4);
@@ -421,31 +391,69 @@ int main(){
 //	c2.greet();
 //	c3.greet();
 //
-//	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
+//	std::cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<std::endl;
 //
-//	cout << "c1 Boredom: " << c1.getBoredom() << endl << "c2 Boredom: " <<c2.getBoredom()<<endl;
+//	std::cout << "c1 Boredom: " << c1.getBoredom() << std::endl << "c2 Boredom: " <<c2.getBoredom()<<std::endl;
 //
 //	try{
 //		c2.setHunger(-2);
 //	}catch(exception const& e){
-//		cerr<<endl<<"Exception: "<<e.what()<<endl;
+//		std::cerr<<std::endl<<"Exception: "<<e.what()<<std::endl;
 //	}
 //
 //	c3.~Critter();
 //	c4.~Critter();
-//	cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<endl;
+//	std::cout <<"Hay en total: "<<c1.getTotal()<<" critters"<<std::endl;
+//	Critter crit(2,2,"Poochie");
+//	std::cout << crit.getName() <<std::endl;
+//
+//	std::cout << "Creating critter farm"<<std::endl;
+//	Farm myFarm(4);
+//
+//	Critter crit2(3,4,"Moe");
+//	Critter crit3;
+//
+//	myFarm.add(Critter(3,4,"Moe"));
+//	myFarm.add(Critter());
+//	myFarm.add(crit2);
+//	myFarm.add(crit3);
+//	std::cout <<Critter::getTotal()<<std::endl;
+//	myFarm.rollCall();
+//
+//
+//	std::cout <<Critter::getTotal()<<std::endl;
+//
+//	std::cout<<crit2<<std::endl;
+//
+//	peek(crit);
+//	int* pHeap = new int;
+//	*pHeap = 10;
+//	std::cout <<*pHeap<<std::endl;
+//
+//	delete pHeap;
+//
+//	pHeap=nullptr;
+//
+//	pHeap=intOnHeap();
+//
+//	std::cout<<*pHeap;
+//
+//	pHeap=nullptr;
+	CritterHeap crit1("Poochie",5);
+	CritterHeap crit2("Pom",3);
+	crit1.greet();
+	crit2.greet();
+	std::cout << "Prueba copia"<<std::endl;
+	testCopia(crit1);
+	std::cout << "Prueba asignación"<<std::endl;
+	crit1=crit2;
+	crit1.greet();
+    /*Al trabajar con heap en clases (usar punteros con new) es
+	 *importante redefinir delete para evitar memory leaks, asignacion
+	 *y copia para evitar shallow copies
+	 */
 
-	Critter crit(2,2,"Poochie");
-	cout << crit.getName() <<endl;
 
-	cout << "Creating critter farm"<<endl;
-	Farm myFarm(2);
-
-	myFarm.add(Critter(3,4,"Moe"));
-	myFarm.add(Critter());
-	myFarm.rollCall();
-
-	cout <<Critter::getTotal()<<endl;
 
 	return 0;
 }

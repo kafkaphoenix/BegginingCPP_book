@@ -11,12 +11,10 @@
 #include <iostream>
 #include "Critter.h"
 
-using namespace std;
-
 class Farm {
 private:
-	int spaces=1;
-	vector<Critter> m_Critters;
+	int m_spaces=1;
+	std::vector<Critter> m_Critters;
 public:
 	Farm(int);
 	virtual ~Farm();

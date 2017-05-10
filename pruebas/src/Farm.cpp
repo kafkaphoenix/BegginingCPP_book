@@ -22,8 +22,8 @@ void Farm::add(const Critter& aCritter){
 }
 
 void Farm::rollCall() const{
-	for(vector<Critter>::const_iterator iter=m_Critters.begin();iter!=m_Critters.end();++iter){
-		cout << iter->getName()<<endl;
+	for(std::vector<Critter>::const_iterator iter=m_Critters.begin();iter!=m_Critters.end();++iter){
+		std::cout << iter->getName()<<std::endl;
 	}
 }
 

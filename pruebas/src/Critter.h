@@ -11,8 +11,6 @@
 #include <string>
 #include <stdexcept>
 
-using namespace std;
-
 class Critter
 {
 
@@ -22,12 +20,12 @@ private:
 	static int s_Total;
 	static void increaseTotal();
 	static void decreaseTotal();
-	string m_Name="none";
+	std::string m_Name="none";
 
 public:
 
 	Critter();
-	Critter(int,int,const string&);
+	Critter(int,int,const std::string&);
 	~Critter();
 
 	int getHunger() const;
@@ -36,7 +34,9 @@ public:
 	void setBoredom(int);
 	void greet();
 	static int getTotal();
-	string getName() const;
+	std::string getName() const;
+	friend void peek(const Critter&);
+	friend std::ostream& operator<<(std::ostream&, const Critter&);
 };
 
 #endif /* CRITTER_H_ */

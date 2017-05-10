@@ -7,18 +7,18 @@
 #include "things.h"
 
 template <typename T>
-void recorrerIter(const vector<T>& v){
-	typename vector<T>::const_iterator iter;
+void recorrerIter(const std::vector<T>& v){
+	typename std::vector<T>::const_iterator iter;
 	for(iter=v.begin();iter!=v.end();++iter){
-		cout << *iter<<endl;
+		std::cout << *iter<<std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 template <typename T>
-int operator*(const vector<T>& v,const vector<T>& v2){
-	typename vector<T>::const_iterator iter;
-	typename vector<T>::const_iterator iter2=v2.begin();
+int operator*(const std::vector<T>& v,const std::vector<T>& v2){
+	typename std::vector<T>::const_iterator iter;
+	typename std::vector<T>::const_iterator iter2=v2.begin();
 	int init=0;
 	for(iter=v.begin();iter!=v.end();++iter){
 		init += (*iter)*(*iter2);
@@ -28,7 +28,7 @@ int operator*(const vector<T>& v,const vector<T>& v2){
 }
 
 //template <typename T>
-//int operator*( const vector<T>& v1,const vector<T>& v2){
+//int operator*( const std::vector<T>& v1,const std::vector<T>& v2){
 //	return inner_product(v1.begin(),v1.begin(),v2.begin(),0);
 //}
 
@@ -40,10 +40,10 @@ void pSwap(int* const pX,int* const pY){
 
 template <typename T>
 void mostrar(const T*const p){
-	cout <<*p<<endl;
+	std::cout <<*p<<std::endl;
 }
 
-string* ptrToElement(vector<string>* const pVec,int i){
+std::string* ptrToElement(std::vector<std::string>* const pVec,int i){
 		return &((*pVec)[i]);
 }
 
@@ -57,9 +57,9 @@ void inicializarArraySec(int* const array,int SIZE,int inicio){
 
 void displayArray(const int* const array, int SIZE){
 	for(int i=0;i<SIZE;++i){
-		cout << array[i]<<" ";
+		std::cout << array[i]<<" ";
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 void incArraySec(int* const array,int SIZE,int inc){
@@ -80,5 +80,7 @@ float foo(int y, float z){
 	return y*z;
 }
 
-
+void testCopia(CritterHeap c){
+	c.greet();
+}
 

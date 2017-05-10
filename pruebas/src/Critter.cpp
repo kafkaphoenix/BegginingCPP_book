@@ -7,8 +7,6 @@
 
 #include "Critter.h"
 
-using namespace std;
-
 int Critter::s_Total=0;
 
 int Critter::getTotal(){
@@ -25,12 +23,12 @@ void Critter::decreaseTotal(){
 
 void Critter::greet()
 {
-	cout <<"Hola, tengo hambre: "<<m_Hunger<<endl;
+	std::cout <<"Hola, tengo hambre: "<<m_Hunger<<std::endl;
 }
 
 void Critter::setHunger(int h){
 	if(h<0){
-		throw invalid_argument("Número negativo");
+		throw std::invalid_argument("Número negativo");
 	}else{
 		m_Hunger=h;
 	}
@@ -43,7 +41,7 @@ int Critter::getHunger() const{
 
 void Critter::setBoredom(int b){
 	if(b<0){
-		throw invalid_argument("Número negativo");
+		throw std::invalid_argument("Número negativo");
 	}else{
 		m_Boredom=b;
 	}
@@ -58,7 +56,7 @@ Critter::Critter(){
 	increaseTotal();
 }
 
-Critter::Critter(int x, int y, const string& name):m_Hunger(x),m_Boredom(y),m_Name(name){
+Critter::Critter(int x, int y, const std::string& name):m_Hunger(x),m_Boredom(y),m_Name(name){
 	increaseTotal();
 }
 
@@ -66,8 +64,21 @@ Critter::~Critter(){
 	decreaseTotal();
 }
 
-string Critter::getName() const{
+std::string Critter::getName() const{
 	return m_Name;
 }
 
+void peek(const Critter& aCritter){
+	std::cout << aCritter.m_Name;
+}
+std::ostream& operator<<(std::ostream& os, const Critter& aCritter){
+	os << "Critter Object - ";
+	os << "m_Name: " << aCritter.m_Name;
+	return os;
+}
 
+int* intOnHeap()
+{
+int* pTemp = new int(20);
+return pTemp;
+}

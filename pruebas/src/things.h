@@ -8,35 +8,33 @@
 #ifndef THINGS_H_
 #define THINGS_H_
 
-#include<vector>
+#include <vector>
 #include <iostream>
 #include <cstdlib>
 #include <string>
 #include <ctime>
 #include <algorithm>
 #include <numeric>
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <stdexcept>
-
-using namespace std;
-
-template <typename T>
-void recorrerIter(const vector<T>&);
+#include "CritterHeap.h"
 
 template <typename T>
-int operator*(const vector<T>&,const vector<T>&);
+void recorrerIter(const std::vector<T>&);
+
+template <typename T>
+int operator*(const std::vector<T>&,const std::vector<T>&);
 
 //template <typename T>
-//int operator*( const vector<T>&,const vector<T>&);
+//int operator*( const std::vector<T>&,const std::vector<T>&);
 
 void pSwap(int* const,int* const);
 
 template <typename T>
 void mostrar(const T*const);
 
-string* ptrToElement(vector<string>* const,int);
+std::string* ptrToElement(std::vector<std::string>* const,int);
 
 void inicializarArraySec(int* const,int,int);
 
@@ -53,5 +51,9 @@ int foo(int,int);
 float foo(int);
 
 float foo(int, float);
+
+int* intOnHeap();
+
+void testCopia(CritterHeap);
 
 #endif /* THINGS_H_ */

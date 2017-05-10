@@ -8,15 +8,14 @@
 #ifndef FARM_H_
 #define FARM_H_
 #include<vector>
-#include <iostream>
 #include "Critter.h"
 
 class Farm {
 private:
-	int m_spaces=1;
+	int m_spaces;
 	std::vector<Critter> m_Critters;
 public:
-	Farm(int);
+	Farm(int=1);
 	virtual ~Farm();
 	void add(const Critter& aCritter);
 	void rollCall() const;

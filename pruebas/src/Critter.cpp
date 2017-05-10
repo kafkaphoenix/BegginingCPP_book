@@ -6,6 +6,8 @@
  */
 
 #include "Critter.h"
+#include <stdexcept>
+#include <iostream>
 
 int Critter::s_Total=0;
 

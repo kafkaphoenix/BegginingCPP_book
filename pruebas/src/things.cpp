@@ -5,6 +5,13 @@
  *      Author: sorak
  */
 #include "things.h"
+#include <stdexcept>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+#include <numeric>
+#include <fstream>
 
 template <typename T>
 void recorrerIter(const std::vector<T>& v){

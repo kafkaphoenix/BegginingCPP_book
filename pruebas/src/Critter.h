@@ -7,25 +7,29 @@
 
 #ifndef CRITTER_H_
 #define CRITTER_H_
-#include <iostream>
+
 #include <string>
-#include <stdexcept>
+#include <iostream>
+
 
 class Critter
 {
 
+	friend void peek(const Critter&);
+	friend std::ostream& operator<<(std::ostream&, const Critter&);
+
 private:
-	int m_Hunger=0;
-	int m_Boredom=0;
+	int m_Hunger;
+	int m_Boredom;
 	static int s_Total;
 	static void increaseTotal();
 	static void decreaseTotal();
-	std::string m_Name="none";
+	std::string m_Name;
 
 public:
 
 	Critter();
-	Critter(int,int,const std::string&);
+	Critter(int=0,int=0,const std::string& = "");
 	~Critter();
 
 	int getHunger() const;
@@ -35,8 +39,6 @@ public:
 	void greet();
 	static int getTotal();
 	std::string getName() const;
-	friend void peek(const Critter&);
-	friend std::ostream& operator<<(std::ostream&, const Critter&);
 };
 
 #endif /* CRITTER_H_ */

@@ -9,6 +9,9 @@
 #include "things.h"
 #include "Farm.h"
 #include "CritterHeap.h"
+#include <iostream>
+#include "Player.h"
+#include "Lobby.h"
 
 int main(){
 
@@ -439,22 +442,62 @@ int main(){
 //	std::cout<<*pHeap;
 //
 //	pHeap=nullptr;
-	CritterHeap crit1("Poochie",5);
-	CritterHeap crit2("Pom",3);
-	crit1.greet();
-	crit2.greet();
-	std::cout << "Prueba copia"<<std::endl;
-	testCopia(crit1);
-	std::cout << "Prueba asignación"<<std::endl;
-	crit1=crit2;
-	crit1.greet();
-    /*Al trabajar con heap en clases (usar punteros con new) es
-	 *importante redefinir delete para evitar memory leaks, asignacion
-	 *y copia para evitar shallow copies
-	 */
+//
+//	CritterHeap crit1("Poochie",5);
+//	CritterHeap crit2("Pom",3);
+//	crit1.greet();
+//	crit2.greet();
+//	std::cout << "Prueba copia"<<std::endl;
+//	testCopia(crit1);
+//	std::cout << "Prueba asignación"<<std::endl;
+//	crit1=crit2;
+//	crit1.greet();
+//    /*Al trabajar con heap en clases (usar punteros con new) es
+//	 *importante redefinir delete para evitar memory leaks, asignacion
+//	 *y copia para evitar shallow copies
+//	 */
+//
+//	testCopia(CritterHeap());
 
+	Lobby lb;
+	int choice;
+	std::string name;
 
+//	std::cout << lb;
+//	std::cout << "\nGAME LOBBY\n";
+//	std::cout << "0 - Exit the program.\n";
+//	std::cout << "1 - Add a player to the lobby.\n";
+//	std::cout << "2 - Remove a player from the lobby.\n";
+//	std::cout << "3 - Clear the lobby.\n";
+//	std::cout << std::endl << "Enter choice: ";
+//	std::cin >> choice;
+//
+//	switch (choice)
+//	{
+//		case 0: std::cout << "Good-bye.\n"; break;
+//		case 1: lb.addPlayer(); break;
+////		case 2:
+////
+////			std::cout << "Insert name: ";
+////			std::cin >> name;
+////			p=searchPlayer(name);
+////			if(&p!=nullptr){
+////				lb.removePlayer(p);
+////			}else{
+////				std::cout << "Player not found";
+////			}
+////			break;
+//		case 3: lb.clear(); break;
+//		default: std::cout << "That was not a valid choice.\n"; break;
+//	}
+//
+//	do{
+//
+//	}while(choice!=0);
 
+	lb.addPlayer();
+	lb.addPlayer();
+	std::cout<<lb;
 	return 0;
 }
 

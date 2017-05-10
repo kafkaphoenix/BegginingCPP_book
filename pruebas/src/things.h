@@ -9,15 +9,7 @@
 #define THINGS_H_
 
 #include <vector>
-#include <iostream>
-#include <cstdlib>
 #include <string>
-#include <ctime>
-#include <algorithm>
-#include <numeric>
-#include <fstream>
-#include <string>
-#include <stdexcept>
 #include "CritterHeap.h"
 
 template <typename T>

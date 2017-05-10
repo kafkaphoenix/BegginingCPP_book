@@ -6,10 +6,9 @@
  */
 
 #include "Farm.h"
-
+#include <iostream>
 
 Farm::Farm(int spaces){
-	// TODO Auto-generated constructor stub
 	m_Critters.reserve(spaces);
 }
 

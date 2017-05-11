@@ -139,7 +139,7 @@ int main(){
 //	inventory.erase(inventory.begin()+1);
 //	inventory.insert(inventory.begin()+1,"crossbow");
 //	inventory.insert(inventory.begin()+3,"set armor");
-//	/*using push_back may invalidate all iterator referenstd::cing
+//	/*using push_back may invalidate all iterator referencing
 //	*the vector porque puede superar el tamaño y hacer resize hay que hacer un nuevo
 //	*inventory.begin */
 //	/*Calling the insert() & erase() member function on a vector invalidates all of the iterators that reference
@@ -458,46 +458,56 @@ int main(){
 //	 */
 //
 //	testCopia(CritterHeap());
-
-	Lobby lb;
-	int choice;
-	std::string name;
-
-//	std::cout << lb;
-//	std::cout << "\nGAME LOBBY\n";
-//	std::cout << "0 - Exit the program.\n";
-//	std::cout << "1 - Add a player to the lobby.\n";
-//	std::cout << "2 - Remove a player from the lobby.\n";
-//	std::cout << "3 - Clear the lobby.\n";
-//	std::cout << std::endl << "Enter choice: ";
-//	std::cin >> choice;
 //
-//	switch (choice)
-//	{
-//		case 0: std::cout << "Good-bye.\n"; break;
-//		case 1: lb.addPlayer(); break;
-////		case 2:
-////
-////			std::cout << "Insert name: ";
-////			std::cin >> name;
-////			p=searchPlayer(name);
-////			if(&p!=nullptr){
-////				lb.removePlayer(p);
-////			}else{
-////				std::cout << "Player not found";
-////			}
-////			break;
-//		case 3: lb.clear(); break;
-//		default: std::cout << "That was not a valid choice.\n"; break;
-//	}
+//	Lobby lb;
+//	Lobby lb1;
+//	Lobby lb2;
+//	Lobby lb3;
+//	int choice;
+//	std::string name;
+//	Player* p;
 //
 //	do{
+//		std::cout << lb;
+//		std::cout << "\nGAME LOBBY\n";
+//		std::cout << "0 - Exit the program.\n";
+//		std::cout << "1 - Add a player to the lobby.\n";
+//		std::cout << "2 - Remove a player from the lobby.\n";
+//		std::cout << "3 - Clear the lobby.\n";
+//		std::cout << std::endl << "Enter choice: ";
+//		std::cin >> choice;
+//		switch (choice)
+//		{
+//		case 0: std::cout << "Good-bye.\n"; break;
+//		case 1: lb.addPlayer(); break;
+//		case 2:
 //
+//			std::cout << "Insert name: ";
+//			std::cin >> name;
+//			p=lb.searchPlayer(name);
+//			if(p==nullptr){
+//				std::cerr<<"Player does not exist";
+//			}else{
+//				lb.removePlayer(*p);
+//			}
+//			break;
+//		case 3: lb.clear(); break;
+//		default: std::cout << "That was not a valid choice.\n";
+//		}
 //	}while(choice!=0);
+//
+//	lb1.addPlayer();
+//	lb1.addPlayer();
+//	std::cout << lb1<<std::endl;
+//	lb3=lb1;//Si no está redefinido = al reasignar lb1 dejas memory leak
+//
+//	lb2.addPlayer();
+//	lb2.addPlayer();
+//	std::cout << lb2<<std::endl;
+//	lb1=lb2;
+//	std::cout << lb1<<std::endl;
+//	std::cout << lb3<<std::endl;
 
-	lb.addPlayer();
-	lb.addPlayer();
-	std::cout<<lb;
 	return 0;
 }
 

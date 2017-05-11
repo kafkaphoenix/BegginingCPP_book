@@ -81,13 +81,24 @@ Player* Lobby::searchPlayer(const std::string& name){
 	return p;
 }
 
-//Lobby::Lobby(const Lobby& c){
-//	Player p = new Player(*c.m_pHead);
-//	while(c.m_pHead!=nullptr){
-//
-//	}
-//
-//}
+Lobby::Lobby(const Lobby& c):m_pHead(nullptr){
+	Player* iter=c.m_pHead;
+	Player* end=nullptr;
+
+	while(iter!=nullptr){
+		Player* p = new Player(iter->getName());
+
+		if(!m_pHead){
+			m_pHead=p;
+			end = m_pHead;
+		}else{
+			end->setNext(p);
+			end = p;
+		}
+		iter=iter->getNext();
+	}
+
+}
 
 Lobby& Lobby::operator=(const Lobby& c){
 	if(this!=&c){

@@ -21,7 +21,7 @@ public:
 	void removePlayer(Player&);
 	void clear();
 	Player* searchPlayer(const std::string&);
-//	Lobby(const Lobby&);
+	Lobby(const Lobby&);
 	Lobby& operator=(const Lobby&);
 private:
 	Player* m_pHead;

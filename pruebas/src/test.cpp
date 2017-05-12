@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Player.h"
 #include "Lobby.h"
+#include "Enemy.h"
+#include "Bossu.h"
 
 int main(){
 
@@ -496,19 +498,29 @@ int main(){
 //		}
 //	}while(choice!=0);
 //
-//	lb1.addPlayer();
-//	lb1.addPlayer();
-//	std::cout << lb1<<std::endl;
-//	lb3=lb1;//Si no está redefinido = al reasignar lb1 dejas memory leak
+//	std::cout<<"Enemy created"<<std::endl;
+//	Enemy e(3);
+//	e.attack();
 //
-//	lb2.addPlayer();
-//	lb2.addPlayer();
-//	std::cout << lb2<<std::endl;
-//	lb1=lb2;
-//	std::cout << lb1<<std::endl;
-//	std::cout << lb3<<std::endl;
+//	std::cout<<"Boss created"<<std::endl;
+//	Bossu e1(6,4);
+//	e1.specialAttack();
 
+	Enemy e3(3);
+	Enemy e4(e3);
+	Enemy e5(1);
+	e3.attack();
+	e4.attack();
+	e4=e5;
+	e4.attack();
 
+	Bossu b3(3,2);
+	Bossu b4(b3);
+	Bossu b5(1,2);
+	b3.specialAttack();
+	b4.specialAttack();
+	b4=b5;
+	b4.specialAttack();
 	return 0;
 }
 

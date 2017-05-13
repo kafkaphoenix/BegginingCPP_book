@@ -13,7 +13,7 @@
 
 class Lobby {
 
-	friend std::ostream& operator<<(std::ostream&,const Lobby&);
+	friend std::ostream& operator<<(std::ostream&,const Lobby&);//<< podrá acceder a las variables privadas
 public:
 	Lobby();
 	virtual ~Lobby();

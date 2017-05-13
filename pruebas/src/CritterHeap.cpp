@@ -9,12 +9,12 @@
 #include <iostream>
 
 CritterHeap::CritterHeap(const std::string& name,int age):m_pName(new std::string(name)),m_Age(age) {
-	// TODO Auto-generated constructor stub
+
 
 }
 
 CritterHeap::~CritterHeap() {
-	// TODO Auto-generated destructor stub
+
 	delete m_pName;
 }
 

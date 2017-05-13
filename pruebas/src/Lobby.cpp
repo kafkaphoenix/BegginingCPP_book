@@ -103,7 +103,7 @@ Lobby::Lobby(const Lobby& c):m_pHead(nullptr){
 Lobby& Lobby::operator=(const Lobby& c){
 	if(this!=&c){
 		this->clear();
-		m_pHead = c.m_pHead;
+		this->m_pHead = c.m_pHead;
 	}
 	return *this;
 }

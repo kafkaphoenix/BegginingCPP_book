@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <numeric>
 #include <fstream>
+#include <sstream>
+#include <iterator>
 
 template <typename T>
 void recorrerIter(const std::vector<T>& v){
@@ -91,3 +93,10 @@ void testCopia(CritterHeap c){
 	c.greet();
 }
 
+void tokenizerString(std::string sentence){
+
+	std::istringstream iss(sentence);
+	std::copy(std::istream_iterator<std::string>(iss),
+			std::istream_iterator<std::string>(),
+			std::ostream_iterator<std::string>(std::cout, "\n"));
+}

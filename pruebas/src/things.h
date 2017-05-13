@@ -48,4 +48,6 @@ int* intOnHeap();
 
 void testCopia(CritterHeap);
 
+void tokenizerString(std::string);
+
 #endif /* THINGS_H_ */

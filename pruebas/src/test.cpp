@@ -9,11 +9,15 @@
 #include "things.h"
 #include "Farm.h"
 #include "CritterHeap.h"
-#include <iostream>
 #include "Player.h"
 #include "Lobby.h"
 #include "Enemy.h"
 #include "Bossu.h"
+
+#include <string>
+#include <iostream>
+#include <vector>
+
 
 int main(){
 
@@ -505,22 +509,65 @@ int main(){
 //	std::cout<<"Boss created"<<std::endl;
 //	Bossu e1(6,4);
 //	e1.specialAttack();
+//
+//	Enemy e3(3);
+//	Enemy e4(e3);
+//	Enemy e5(1);
+//	e3.attack();
+//	e4.attack();
+//	e4=e5;
+//	e4.attack();
+//
+//	std::cout<<std::endl;
+//
+//	Bossu b3(3,2);
+//	Bossu b4(b3);
+//	Bossu b5(1,2);
+//	b3.specialAttack();
+//	b4.specialAttack();
+//	b4=b5;
+//	b4.specialAttack();
+//
+//	//Lambda Function examples [](){} and ternary ()?:
+//	auto lambda = [](int x, int y) -> int {return x + y;};
+//	std::cout << lambda(3,4);
+//
+//	int x=2;
+//	std::string strp("Es negativo");
+//	std::string& str=strp;
+//	auto lambda2 = [x,&str](int y) -> std::string {
+//	return ((x-y)<0)? "Es negativo":"Es positivo";
+//	};
+//	std::cout << lambda2(3)<<std::endl<< lambda2(1)<<std::endl;
+//
+//	auto lambda3 = [](int x,int y)->int{return (x<y) ? 1 : 0;};
+//
+//	std::cout<<lambda3(1,2)<<std::endl;
+//	std::cout<<lambda3(2,1)<<std::endl;
+//	auto algorithm = [&]( double x, double m, double b ) -> double
+//		   {
+//		   return m*x+b;
+//		   };
+//
+//		int a=algorithm(1,2,3), b=algorithm(4,5,6);
+//
+//		std::cout<<a<<"\n"<<b<<std::endl;
+//	//c++14 auto lambda = [](auto x, auto y) {return x + y;};
+//	//TODO Pone en la ventana tasks cosas por hacer
+//
+//	const int valorx=2;
+//	static_assert(!(valorx!=2), "no es 2");
+//
+//	std::string sentence = "And I feel fine...";
+//	tokenizerString(sentence);
+//	std::cout<<sentence;
+//
+//	int a[] = {static_cast<int>(1.0)}; //Narrowing conversion, double-> int por lo que hay que hacer cast si de verdad quieres hacer eso
+//	std::cout<<a[0];
+//
+//	int x={4.5};//curly brace prevent narrowing conversion
 
-	Enemy e3(3);
-	Enemy e4(e3);
-	Enemy e5(1);
-	e3.attack();
-	e4.attack();
-	e4=e5;
-	e4.attack();
 
-	Bossu b3(3,2);
-	Bossu b4(b3);
-	Bossu b5(1,2);
-	b3.specialAttack();
-	b4.specialAttack();
-	b4=b5;
-	b4.specialAttack();
 	return 0;
 }
 

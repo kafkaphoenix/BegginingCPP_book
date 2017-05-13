@@ -8,12 +8,14 @@
 #include "Farm.h"
 #include <iostream>
 
-Farm::Farm(int spaces){
-	m_Critters.reserve(spaces);
+Farm::Farm(int spaces)
+:m_spaces(spaces)
+{
+	m_Critters.reserve(m_spaces);
 }
 
 Farm::~Farm() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void Farm::add(const Critter& aCritter){

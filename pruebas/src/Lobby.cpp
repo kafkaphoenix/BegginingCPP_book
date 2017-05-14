@@ -12,7 +12,7 @@ Lobby::Lobby()
 {}
 
 Lobby::~Lobby() {
-//	clear();
+	clear();
 }
 
 void Lobby::addPlayer(){
@@ -100,11 +100,19 @@ Lobby::Lobby(const Lobby& c):m_pHead(nullptr){
 
 }
 
-Lobby& Lobby::operator=(const Lobby& c){
-	if(this!=&c){
-		this->clear();
-		this->m_pHead = c.m_pHead;
-	}
+Lobby& Lobby::operator=(Lobby c){//passing by value is a optimization
+	swap(*this,c);//call the copy constructor
 	return *this;
 }
 
+void swap(Lobby& first,Lobby& second) noexcept{
+
+			using std::swap;//enable ADL
+			swap(first.m_pHead,second.m_pHead);
+}
+
+Lobby::Lobby(Lobby&& other) noexcept
+:Lobby()//llama al constructor vacío
+{
+	swap(*this,other);
+}

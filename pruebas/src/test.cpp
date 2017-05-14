@@ -465,10 +465,9 @@ int main(){
 //
 //	testCopia(CritterHeap());
 //
-//	Lobby lb;
-//	Lobby lb1;
-//	Lobby lb2;
-//	Lobby lb3;
+	Lobby lb;
+	Lobby lb1;
+	Lobby lb2;
 //	int choice;
 //	std::string name;
 //	Player* p;
@@ -501,6 +500,19 @@ int main(){
 //		default: std::cout << "That was not a valid choice.\n";
 //		}
 //	}while(choice!=0);
+	lb1.addPlayer();
+	lb1.addPlayer();
+	lb2.addPlayer();
+	lb2.addPlayer();
+	std::cout<<lb1;
+	std::cout<<lb2;
+	Lobby lb3=lb1;
+	lb1=lb2;
+	std::cout<<lb1;
+	std::cout<<lb2;
+	std::cout<<lb3;//swap idiom is wonderful
+
+
 //
 //	std::cout<<"Enemy created"<<std::endl;
 //	Enemy e(3);

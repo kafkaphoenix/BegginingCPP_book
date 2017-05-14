@@ -13,6 +13,7 @@
 
 class Lobby {
 
+	friend void swap(Lobby& first,Lobby& second) noexcept;
 	friend std::ostream& operator<<(std::ostream&,const Lobby&);//<< podrá acceder a las variables privadas
 public:
 	Lobby();
@@ -22,7 +23,8 @@ public:
 	void clear();
 	Player* searchPlayer(const std::string&);
 	Lobby(const Lobby&);
-	Lobby& operator=(const Lobby&);
+	Lobby& operator=(Lobby);
+	Lobby(Lobby&&) noexcept;
 private:
 	Player* m_pHead;
 };

@@ -13,6 +13,8 @@
 #include "Lobby.h"
 #include "Enemy.h"
 #include "Bossu.h"
+#include "AbstractCreature.h"
+#include "Orc.h"
 
 #include <string>
 #include <iostream>
@@ -500,19 +502,19 @@ int main(){
 //		default: std::cout << "That was not a valid choice.\n";
 //		}
 //	}while(choice!=0);
-	lb1.addPlayer();
-	lb1.addPlayer();
-	lb2.addPlayer();
-	lb2.addPlayer();
-	std::cout<<lb1;
-	std::cout<<lb2;
-	Lobby lb3=lb1;
-	lb1=lb2;
-	std::cout<<lb1;
-	std::cout<<lb2;
-	std::cout<<lb3;//swap idiom is wonderful
-
-
+//	lb1.addPlayer();
+//	lb1.addPlayer();
+//	lb2.addPlayer();
+//	lb2.addPlayer();
+//	std::cout<<lb1;
+//	std::cout<<lb2;
+//	Lobby lb3=lb1;
+//	lb1=lb2;
+//	std::cout<<lb1;
+//	std::cout<<lb2;
+//	std::cout<<lb3;//swap idiom is wonderful
+//
+//
 //
 //	std::cout<<"Enemy created"<<std::endl;
 //	Enemy e(3);
@@ -578,7 +580,19 @@ int main(){
 //	std::cout<<a[0];
 //
 //	int x={4.5};//curly brace prevent narrowing conversion
-
+//
+//	Enemy* e = new Bossu; //Asignamos un puntero enemy a bossu cuando va a lanzar
+//	//el método compruebe su tipo dinámicamente y lanza la versión modificada
+//	//que se redefinió por ser virtual. El polimorfismo es útil porque
+//	/*It’s useful because it allows you
+//	 * to deal with objects without requiring that you know their exact type.
+//	 *Virtual functions produce polymorphic behavior through references as
+//	 *well as through pointers.
+//	 */
+//	e->attack();
+	AbstractCreature* p= new Orc();
+	p->greet();
+	p->displayHealth();
 
 	return 0;
 }

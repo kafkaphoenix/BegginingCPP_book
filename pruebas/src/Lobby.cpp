@@ -47,7 +47,6 @@ void Lobby::removePlayer(Player& p){
 
 		pBefore->setNext(pIter->getNext());
 		delete pIter;
-
 	}
 }
 

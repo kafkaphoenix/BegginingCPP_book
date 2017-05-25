@@ -126,7 +126,7 @@ int main(){
 //	inventory.push_back(ar);
 //	inventory.push_back("shield");
 //	std::cout <<"Items in your sack:"<<std::endl;
-//	for(unsigned int i=0;i<inventory.size();++i){
+//	for(unsigned int i=0;i<inventory.size();++i){//Cuidado con los unsigned
 //		std::cout << inventory[i] << std::endl;
 //	}
 //
